@@ -1,0 +1,14 @@
+{
+    "name": "mini-koa",
+    "version": "0.0.1",
+    "description": "mini koa framework",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon"
+    },
+    "author": "mon",
+    "license": "ISC",
+    "dependencies": {
+        "nodemon": "^2.0.2"
+    }
+}
