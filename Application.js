@@ -36,7 +36,7 @@ module.exports = class Application {
                 if (!fn) {
                     return
                 }
-                return fn(ctx, () => useMiddleware(i + 1)) //递归执行中间件方法，并且传到一下层
+                return fn(ctx, () => useMiddleware(i + 1)) //递归执行中间件方法，并且传到一下层，"() => useMiddleware(i + 1)"即 "调用的 await next()"
             }
             return useMiddleware(0)
         }
