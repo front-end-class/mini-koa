@@ -14,6 +14,7 @@ module.exports = class Application {
             const ctx = new Context(req, res);
 
             //调用 compose 函数，依次处理所有中间件函数
+            //await this.compose(this.middlewares)(ctx)
             const fn = this.compose(this.middlewares);
             await fn(ctx)
                 // 最后返回res body
