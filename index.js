@@ -1,5 +1,5 @@
-const Application = require('./Application.js');
-const app = new Application();
+const MiniKoa = require('./Application.js');
+const app = new MiniKoa();
 // 中间件 1
 app.use(async(ctx, next) => {
     console.log('欢迎订阅，')
