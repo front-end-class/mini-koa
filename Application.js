@@ -14,8 +14,7 @@ module.exports = class Application {
             const ctx = new Context(req, res);
 
             //调用 compose 函数，依次处理所有中间件函数
-            const fn = this.compose(this.middlewares);
-            await fn(ctx)
+            await this.compose(this.middlewares)(ctx)
                 // 最后返回res body
             this.responseBody(ctx)
         }
@@ -44,8 +43,10 @@ module.exports = class Application {
 
     // 挂载中间件
     use(middleware) {
-        //打包中间件集合，middleware实则是个方法
+        if (typeof middleware !== 'function') throw new TypeError('middleware must be a function!')
+            //打包中间件集合，middleware实则是个方法
         this.middlewares.push(middleware)
+        return this
     }
 
     // 启动服务器
